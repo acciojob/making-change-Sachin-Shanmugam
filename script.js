@@ -1,52 +1,25 @@
-const makeChange = (c) => {
-    // Initialize the counts of each coin
-    let quarters = 0;
-    let dimes = 0;
-    let nickels = 0;
-    let pennies = 0;
+function makeChange(amount) {
+  const change = {
+    q: 0,
+    d: 0,
+    n: 0,
+    p: 0
+  };
 
-    // Calculate the number of quarters
-    quarters = Math.floor(c / 0.25);
-    c -= quarters * 0.25;
+  // Quarters (25)
+  change.q = Math.floor(amount / 25);
+  amount %= 25;
 
-    // Calculate the number of dimes
-    dimes = Math.floor(c / 0.10);
-    c -= dimes * 0.10;
+  // Dimes (10)
+  change.d = Math.floor(amount / 10);
+  amount %= 10;
 
-    // Calculate the number of nickels
-    nickels = Math.floor(c / 0.05);
-    c -= nickels * 0.05;
+  // Nickels (5)
+  change.n = Math.floor(amount / 5);
+  amount %= 5;
 
-    // Calculate the number of pennies
-    pennies = Math.floor(c / 0.01);
-    c -= pennies * 0.01;
+  // Pennies (1)
+  change.p = amount;
 
-    // Return the result as an object
-    return { q: quarters, d: dimes, n: nickels, p: pennies };
-};
-const makeChange = (c) => {
-    // Initialize the counts of each coin
-    let quarters = 0;
-    let dimes = 0;
-    let nickels = 0;
-    let pennies = 0;
-
-    // Calculate the number of quarters
-    quarters = Math.floor(c / 0.25);
-    c -= quarters * 0.25;
-
-    // Calculate the number of dimes
-    dimes = Math.floor(c / 0.10);
-    c -= dimes * 0.10;
-
-    // Calculate the number of nickels
-    nickels = Math.floor(c / 0.05);
-    c -= nickels * 0.05;
-
-    // Calculate the number of pennies
-    pennies = Math.floor(c / 0.01);
-    c -= pennies * 0.01;
-
-    // Return the result as an object
-    return { q: quarters, d: dimes, n: nickels, p: pennies };
-};
+  return change;
+}
